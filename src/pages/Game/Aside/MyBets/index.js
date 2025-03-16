@@ -1,0 +1,43 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setBets } from 'store/actions/betsAction';
+
+import Bet from '../Bet';
+
+import style from './index.module.scss';
+
+const MyBets = () => {
+  const dispatch = useDispatch()
+  const { bets } = useSelector(state => state.bets)
+
+  useEffect(() => {
+    dispatch(setBets())
+  }, [])
+
+  return (
+    <div className={style.block}>
+      <div className={style.body}>
+        <div className={style.table}>
+          <div className={style.row}>
+            <div className={style.cell}>Date</div>
+            <div className={style.cell}>Bet USD X</div>
+            <div className={style.cell}>Mult.</div>
+            <div className={style.cell}>Cash out USD</div>
+          </div>
+          {
+            bets.map((el, idx) =>
+              <Bet
+                key={idx}
+                data={el}
+                type={1}
+              />
+            )
+          }
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default MyBets;

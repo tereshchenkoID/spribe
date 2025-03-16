@@ -1,0 +1,191 @@
+@use '../config' as *;
+
+:root {
+  --max-width: 1366px;
+  --min-width: 360px;
+  --outer-gap: 16px;
+  --outer-gap-revert: -16px;
+  --font-size: 16px;
+  --font-family: 'Roboto', sans-serif;
+  --font-family-alt: 'Roboto Condensed', sans-serif;
+  --line-height: 1.5;
+  --typography-regular: 400;
+  --typography-medium: 500;
+  --typography-bold: 700;
+  --color-white: #fff;
+  --color-black: #000;
+
+  --gap-2: 2px;
+  --gap-4: 4px;
+  --gap-6: 6px;
+  --gap-8: 8px;
+  --gap-12: 12px;
+  --gap-16: 16px;
+
+  --border-radius-4: 4px;
+  --border-radius-6: 6px;
+  --border-radius-8: 8px;
+
+  --box-shadow-8-16: 0 8px 16px rgba(0, 0, 0, 0.149);
+
+  --color-white-alpha-01: rgba(255, 255, 255, 0.1);
+
+  --color-black-alpha-05: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;user-select
+
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  @include scroll;
+
+  background-color: var(--color-background);
+  line-height: var(--line-height);
+  color: var(--color-black);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--typography-regular);
+  overflow-x: hidden;
+  text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  min-width: var(--min-width);
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include make-spacer(m, 0);
+
+  font-family: var(--font-family-alt);
+  font-weight: var(--typography-regular);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: rem(32px);
+
+  @include media-breakpoint-up(md) {
+    font-size: rem(36px);
+  }
+}
+
+h2 {
+  font-size: rem(28px);
+
+  @include media-breakpoint-up(md) {
+    font-size: rem(32px);
+  }
+}
+
+h3 {
+  font-size: rem(24px);
+
+  @include media-breakpoint-up(md) {
+    font-size: rem(28px);
+  }
+}
+
+h4 {
+  font-size: rem(20px);
+
+  @include media-breakpoint-up(md) {
+    font-size: rem(22px);
+  }
+}
+
+h5 {
+  font-size: rem(16px);
+
+  @include media-breakpoint-up(md) {
+    font-size: rem(18px);
+  }
+}
+
+h6 {
+  font-size: rem(12px);
+
+  @include media-breakpoint-up(md) {
+    font-size: rem(14px);
+  }
+}
+
+a,
+button,
+input {
+  color: var(--color-black);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input {
+  font-weight: var(--typography-medium);
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    @include make-spacer(m, 0);
+
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+  }
+}
+
+button,
+a {
+  @include transition(all);
+}
+
+button {
+  @include reset-button;
+}
+
+a {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  @include make-spacer(p, 0);
+  @include make-spacer(m, 0);
+}
+
+ul,
+ol {
+  @include reset-list;
+}
+
+picture,
+img {
+  @include size(100%);
+
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+hr {
+  @include make-spacer(my, 0);
+  @include size(100%, rem(1px));
+
+  display: block;
+  border: 0;
+  background-color: var(--color-black);
+}
+
+main {
+  position: relative;
+}

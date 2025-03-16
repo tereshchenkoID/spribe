@@ -1,0 +1,60 @@
+@use 'scss/config' as *;
+
+:root {
+  // Nav
+  --nav_background_color: #1b1c1d;
+  --nav_dropdown_color: #2c2d30;
+
+  // Modal
+  --modal_background_color: #383A3E;
+  --modal_background_color_alt: #2C2D30;
+
+  // Game
+  --game_background_color: #0e0e0e;
+
+  // Aside
+  --aside_background_color: #1b1c1d;
+  --aside_background_color_alt: #141516;
+  
+  // Button
+  --button_background_color: #252528;
+  --button_background_color_alt: #dc3545;
+
+  --color_text: #9b9c9e;
+  --color_text_alt: #fff;
+
+  --color_danger: #dc3545;
+  --color_danger_hover: #e00f24;
+  --color_success: #427F00;
+  --color_success_hover: #123406;
+}
+
+.block {
+  @include size(100vw, 100vh);
+  
+  display: grid;
+  grid-template-rows: rem(40px) 1fr;
+  background-color: var(--game_background_color);
+  color: var(--color_text);
+
+  a,
+  button {
+    color: var(--color_text);
+  }
+}
+
+.body {
+  @include make-spacer(p, var(--gap-8));
+
+  display: grid;
+  grid-template-columns: rem(320px) 1fr;
+  gap: var(--gap-8);
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: rem(370px) 1fr;
+  }
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: rem(410px) 1fr;
+  }
+}

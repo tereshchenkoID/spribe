@@ -1,0 +1,56 @@
+@use 'scss/config' as *;
+
+.block {  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--aside_background_color_alt);
+  border-radius: rem(8px);
+  font-size: rem(12px);
+  
+  &.win {
+    border: rem(1px) solid var(--color_success);
+    background: var(--color_success_hover);
+  }
+}
+
+.cashed,
+.stake {
+  color: var(--color_text_alt);
+  font-size: rem(14px);
+}
+
+.cell {
+  @include flex($align-items: center);
+  @include make-spacer(py, var(--gap-2));
+  @include make-spacer(px, var(--gap-4));
+
+  gap: var(--gap-4);
+
+  &:nth-child(4) {
+    justify-content: flex-end
+  }
+}
+
+.avatar {
+  @include size(rem(30px));
+
+  border-radius: 50%; 
+}
+
+.odds {
+  @include make-spacer(py, var(--gap-2));
+  @include make-spacer(px, var(--gap-6));
+  
+  background-color: var(--color-black);
+  border-radius: rem(11px);
+  font-size: rem(12px);
+}
+
+.round {
+  transform: scale(0.7);
+  color: var(--color_success);
+
+  svg {
+    color: var(--color_success);
+  }
+}

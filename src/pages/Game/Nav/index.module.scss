@@ -1,0 +1,134 @@
+@use 'scss/config' as *;
+
+.block {
+  @include flex(space-between, center);
+  @include make-spacer(px, var(--outer-gap));
+
+  position: relative;
+  background-color: var(--nav_background_color);
+  color: var(--color_text);
+}
+
+.header,
+.footer {
+  @include make-spacer(p, var(--gap-8));
+
+  min-height: rem(46px);
+}
+
+.logo {
+  @include size(rem(84px), 100%);
+}
+
+.options {
+  @include flex($align-items: center);
+
+  height: 100%;
+}
+
+.hr {
+  @include size(rem(1px), rem(16px));
+  @include make-spacer(mx, var(--gap-16));
+
+  background-color: var(--color_text);
+}
+
+.balance {
+  font-size: rem(12px);
+}
+
+.label {
+  font-size: rem(16px);
+  color: var(--color_success);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: rem(320px);
+  background-color: var(--nav_dropdown_color);
+  border-radius: var(--border-radius-4);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--gap-8);
+}
+
+.avatar {
+  @include size(rem(40px));
+
+  border-radius: 50%;
+}
+
+.nickname {
+  color: var(--color-white);
+  font-size: rem(14px)
+}
+
+.change {
+  @include make-spacer(px, var(--gap-12));
+
+  display: grid;
+  grid-template-columns: rem(20px) 1fr;
+  align-items: center;
+  max-width: rem(100px);
+  height: 100%;
+  border: rem(1px) solid currentColor;
+  border-radius: rem(21px);
+  background-color: var(--nav_background_color);
+  font-size: rem(12px);
+}
+
+.link {
+  @include make-spacer(px, var(--gap-12));
+  @include flex($align-items: center);
+  @include size(100%, rem(44px));
+
+  gap: var(--gap-8);
+  background-color: var(--nav_background_color);
+  font-size: rem(14px);
+
+  &:not(:first-child) {
+    border-top: rem(1px) solid var(--color-white-alpha-01);
+  }
+
+  @include hover {
+
+    &:hover {
+      color: var(--color_text_alt);
+    }
+  }
+
+  &.disable {
+    color: inherit;
+  }
+}
+
+.text {
+  flex: 1;
+}
+
+.icon {
+  @include flex(center, center);
+
+  flex-shrink: 0;
+  width: rem(24px);
+}
+
+.footer {
+  @include flex(center, center);
+
+  gap: var(--gap-8);
+  font-size: rem(12px);
+
+  @include hover {
+
+    &:hover {
+      color: var(--color_text_alt);
+    }
+  }
+}

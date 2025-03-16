@@ -1,0 +1,40 @@
+@use 'scss/config' as *;
+
+.block {
+  @include size(100vw, 100vh);
+}
+
+.list {
+  @include size(100%);
+
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-16);
+}
+
+.link {
+  @include flex($direction: column);
+  @include size(300px, 250px);
+
+  border-radius: var(--border-radius-8);
+  box-shadow: var(--box-shadow-8-16);
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.preview {
+  height: rem(208px);
+}
+
+.img {
+  object-fit: cover;
+}
+
+.name {
+  @include make-spacer(px, var(--gap-16));
+  @include flex($align-items: center);
+
+  flex-grow: 1;
+}

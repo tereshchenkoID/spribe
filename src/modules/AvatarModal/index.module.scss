@@ -1,0 +1,28 @@
+@use 'scss/config' as *;
+
+.block {
+  display: grid;
+  grid-template-columns: repeat(9, rem(70px));
+  justify-content: center;
+  gap: var(--gap-4);
+}
+
+.avatar {
+  @include size(100%);
+  
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: rem(4px) solid var(--nav_dropdown_color);
+
+  &.active {
+    pointer-events: none;
+    border-color: var(--color_success);
+  }
+
+  @include hover {
+
+    &:hover {
+      border-color: var(--color_danger);
+    }
+  }
+}

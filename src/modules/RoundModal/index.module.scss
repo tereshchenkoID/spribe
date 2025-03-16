@@ -1,0 +1,68 @@
+@use 'scss/config' as *;
+
+.block {
+  @include flex($direction: column);
+  
+  gap: var(--gap-16);
+  color: var(--color_text_alt);
+}
+
+.wrapper {
+  @include make-spacer(mb, var(--gap-6));
+
+  display: grid;
+  grid-template-columns: rem(32px) 1fr;
+  align-items: center;
+  gap: var(--gap-8);
+}
+
+.title {
+  line-height: 1;
+}
+
+.label {
+  color: var(--color_text);
+  font-size: rem(14px);
+}
+
+.value,
+.win {
+  @include make-spacer(p, var(--gap-12));
+
+  background-color: var(--modal_background_color_alt);
+  border-radius: var(--border-radius-6);
+  font-size: rem(14px);
+  word-wrap: break-word;
+}
+
+.win {
+  @include make-spacer(mb, var(--gap-6));
+
+  display: grid;
+  grid-template-columns: 0.5fr auto 1fr auto 2fr;
+  align-items: center;
+  gap: var(--gap-6);
+}
+
+.avatar {
+  @include size(rem(30px));
+
+  border-radius: 50%;
+}
+
+.table {
+  @include make-spacer(mt, var(--gap-6));
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  text-align: center;
+  height: rem(38px);
+
+  &:last-child {
+    background-color: var(--modal_background_color_alt);
+    border-radius: var(--border-radius-6);
+  }
+}

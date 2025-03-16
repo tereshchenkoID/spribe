@@ -1,0 +1,48 @@
+@import 'scss/config';
+
+.block {
+  @include flex;
+  @include size(rem(35px), rem(16px));
+
+  position: relative;
+  border-radius: var(--border-radius-4);
+  overflow: hidden;
+  outline: rem(1px) solid rgba(255, 255, 255, 0.51);
+  flex-shrink: 0;
+}
+
+.input {
+  @include size(0);
+
+  opacity: 0;
+
+  &:checked + .label {
+    background-color: #229607;
+
+    &::before {
+      transform: translateX(19px);
+    }
+  }
+}
+
+.label {
+  @include transition;
+  @include absolute-filled;
+
+  background-color: transparent;
+  cursor: pointer;
+
+  &::before {
+    @include flex(center, center);
+    @include size(rem(14px));
+
+    position: absolute;
+    bottom: rem(1px);
+    left: rem(1px);
+    border-radius: var(--border-radius-4);
+    background-color: var(--color-white);
+    border: rem(2px) solid #a3b98a;
+    transition: inherit;
+    content: '';
+  }
+}

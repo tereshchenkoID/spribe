@@ -1,0 +1,30 @@
+@use 'scss/config' as *;
+
+.block {
+  @include flex($direction: column);
+
+  overflow: hidden;
+  height: 100%;
+}
+
+
+.table {
+  @include flex($direction: column);
+  @include make-spacer(px, var(--gap-4));
+
+  gap: rem(2px);
+}
+
+.row {  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: rem(12px);
+}
+
+.cell {
+  @include make-spacer(p, var(--gap-4));
+
+  &:nth-child(4) {
+    text-align: right;
+  }
+}

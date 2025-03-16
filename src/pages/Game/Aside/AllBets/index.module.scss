@@ -1,0 +1,57 @@
+@use 'scss/config' as *;
+
+.block {
+  @include flex($direction: column);
+
+  overflow: hidden;
+  height: 100%;
+}
+
+.header {
+  @include flex(space-between, center);
+  @include make-spacer(p, var(--gap-4));
+
+  flex-shrink: 0;
+  border-bottom: rem(1px) solid var(--aside_background_color_alt);
+}
+
+.table {
+  @include flex($direction: column);
+  @include make-spacer(px, var(--gap-4));
+
+  gap: rem(2px);
+}
+
+.row {  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: rem(12px);
+}
+
+.cell {
+  @include make-spacer(p, var(--gap-4));
+
+  &:nth-child(4) {
+    text-align: right;
+  }
+}
+
+.previous {
+  @include flex($align-items: center);
+
+  gap: var(--gap-4);
+  border-radius: rem(17px);
+  height: rem(20px);
+  font-size: rem(12px);
+  padding: 0 8px 0 3px;
+  white-space: nowrap;
+  background-color: var(--button_background_color);
+  border: rem(1px) solid var(--color_text);
+
+  @include hover {
+    
+    &:hover {
+      color: var(--button_background_color_alt);
+    }
+  }
+}

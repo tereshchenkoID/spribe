@@ -1,0 +1,33 @@
+{
+  "odd_id": "1962993",
+  "odds": "1.25",
+  "color": "#6b07d2",
+  "created": "1666196065",
+  "server_seed": "VxSPa9NDhmPHSbIZciIZzoGYiEnFG2lfJe2HZpBJ",
+  "client_seed": [
+    {
+      "username": "d*****25",
+      "avatar": "https://aviator-demo.spribegaming.com/assets/static/avatars/v2/av-2.png?v=4.1.1",
+      "user_id": 69041,
+      "seed": "BPV6qWrC1trPATJp7vjo"
+    },
+    {
+      "username": "d*****25",
+      "avatar": "https://aviator-demo.spribegaming.com/assets/static/avatars/v2/av-2.png?v=4.1.1",
+      "user_id": 69041,
+      "seed": "BPV6qWrC1trPATJp7vjo"
+    },
+    {
+      "username": "d*****25",
+      "avatar": "https://aviator-demo.spribegaming.com/assets/static/avatars/v2/av-2.png?v=4.1.1",
+      "user_id": 69041,
+      "seed": "BPV6qWrC1trPATJp7vjo"
+    }
+  ],
+  "combined_seed": {
+    "seed": "2debe0db8ffbf112ec656af7043d2b83213117819449d54ab669b44c1847f9498e1c9147a351e231016402f36298b8699b5a36f0c7e15347354d032153c6448f",
+    "hex": "2debe0db8ffbf",
+    "decimal": "807857808801727",
+    "result": "1.18"
+  }
+}

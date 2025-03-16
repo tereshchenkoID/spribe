@@ -1,0 +1,14 @@
+[
+  {
+    "id": "0",
+    "name": "Aviator",
+    "preview": "https://spribe.co/assets/images/games/Av-new@2x.png?v=2.5.23-hotfix-7",
+    "url": "aviator"
+  },
+  {
+    "id": "1",
+    "name": "Trader",
+    "preview": "https://spribe.co/assets/images/games/trader@2x.png?v=2.5.23-hotfix-7",
+    "url": "trader"
+  }
+]
