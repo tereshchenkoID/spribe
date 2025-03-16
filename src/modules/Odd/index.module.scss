@@ -1,0 +1,11 @@
+@use 'scss/config' as *;
+
+.block {
+  @include make-spacer(py, var(--gap-2));
+  @include make-spacer(px, var(--gap-6));
+  
+  background-color: var(--color-black);
+  border-radius: rem(11px);
+  width: fit-content;
+  font-size: rem(12px);
+}

@@ -37,15 +37,6 @@
   border-radius: 50%; 
 }
 
-.odds {
-  @include make-spacer(py, var(--gap-2));
-  @include make-spacer(px, var(--gap-6));
-  
-  background-color: var(--color-black);
-  border-radius: rem(11px);
-  font-size: rem(12px);
-}
-
 .round {
   transform: scale(0.7);
   color: var(--color_success);

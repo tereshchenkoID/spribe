@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setBets } from 'store/actions/betsAction';
 
 import Icon from 'components/Icon';
-import Bet from '../Bet';
+import Bet from 'modules/Bet';
 
 import style from './index.module.scss';
 

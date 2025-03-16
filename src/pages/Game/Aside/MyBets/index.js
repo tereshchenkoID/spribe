@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { setBets } from 'store/actions/betsAction';
+import { setBets } from 'store/actions/betsAction'
 
-import Bet from '../Bet';
+import Bet from 'modules/Bet'
 
-import style from './index.module.scss';
+import style from './index.module.scss'
 
 const MyBets = () => {
   const dispatch = useDispatch()
@@ -37,7 +37,7 @@ const MyBets = () => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default MyBets;
+export default MyBets

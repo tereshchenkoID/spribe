@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import AllBets from './AllBets';
 import MyBets from './MyBets';
+import TopBets from './TopBets';
 
 import style from './index.module.scss';
 
@@ -13,7 +14,7 @@ const TABS = [
 ]
 
 const Aside = () => {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(2)
 
   return (
     <div className={style.block}>
@@ -44,10 +45,13 @@ const Aside = () => {
           active === 0 &&
           <AllBets />
         }
-
         {
           active === 1 &&
           <MyBets />
+        }
+        {
+          active === 2 &&
+          <TopBets />
         }
       </div>
       <div className={style.footer}>

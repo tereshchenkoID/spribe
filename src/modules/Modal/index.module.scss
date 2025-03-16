@@ -7,7 +7,6 @@
   position: fixed;
   inset: 0;
   z-index: $z-index-9;
-  background-color: var(--color-black-alpha-05);
 }
 
 .header,
@@ -26,6 +25,12 @@
   font-family: var(--font-family-alt);
 }
 
+.shadow {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-black-alpha-05);
+}
+
 .content {
   @include flex;
 
@@ -35,6 +40,7 @@
   max-height: 100%;
   max-width: rem(800px);
   width: 100%;
+  z-index: $z-index-1;
 }
 
 .wrapper {

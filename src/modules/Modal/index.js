@@ -7,6 +7,10 @@ import style from './index.module.scss'
 const Modal = ({ children, onClose, title }) => {
   return (
     <div className={style.block}>
+      <div 
+        className={style.shadow} 
+        onClick={onClose}
+      />
       <div className={style.content}>
         <div className={style.wrapper}>
           <div className={style.header}>
