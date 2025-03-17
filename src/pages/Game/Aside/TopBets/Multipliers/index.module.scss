@@ -23,10 +23,21 @@
   &:not(:last-child) {
     @include make-spacer(mb, var(--gap-2));
   }
+
+  &.lg {
+    grid-template-columns: 1fr auto;
+    place-items: center;
+    text-align: center;
+    height: rem(90px);
+
+    .cell {
+      @include make-spacer(py, var(--gap-4));
+    }
+  }
 }
 
 .cell {
-  @include make-spacer(px, var(--gap-4));
+  @include make-spacer(px, var(--gap-8));
 
   &:nth-child(3) {
     text-align: right;

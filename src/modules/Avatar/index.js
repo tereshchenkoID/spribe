@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import style from './index.module.scss'
 
-const Odd = ({ odd, color, size = 'sm' }) => {
+const Avatar = ({ url, alt = 'Avatar', size = 'sm' }) => {
   return (
     <div
       className={
@@ -13,11 +13,13 @@ const Odd = ({ odd, color, size = 'sm' }) => {
           style[size]
         )
       }
-      style={{color: color}}
     >
-      {odd} x
+      <img
+        src={url}
+        alt={alt}
+      />
     </div>
   )
 }
 
-export default Odd
+export default Avatar

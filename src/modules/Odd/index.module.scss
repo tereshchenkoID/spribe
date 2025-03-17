@@ -2,10 +2,21 @@
 
 .block {
   @include make-spacer(py, var(--gap-2));
-  @include make-spacer(px, var(--gap-6));
   
   background-color: var(--color-black);
-  border-radius: rem(11px);
   width: fit-content;
-  font-size: rem(12px);
+
+  &.sm {
+    @include make-spacer(px, var(--gap-6));
+
+    border-radius: rem(11px);
+    font-size: rem(12px);
+  }
+
+  &.lg {
+    @include make-spacer(px, var(--gap-16));
+
+    border-radius: rem(16px);
+    font-size: rem(24px);
+  }
 }

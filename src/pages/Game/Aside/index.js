@@ -14,7 +14,7 @@ const TABS = [
 ]
 
 const Aside = () => {
-  const [active, setActive] = useState(2)
+  const [active, setActive] = useState(0)
 
   return (
     <div className={style.block}>

@@ -4,6 +4,7 @@ import { mask } from 'helpers/mask'
 import { getData } from 'helpers/api'
 
 import Icon from 'components/Icon'
+import Avatar from 'modules/Avatar'
 
 import style from './index.module.scss'
 
@@ -16,8 +17,8 @@ const RoundModal = ({ id }) => {
       setData(json)
     })
   }, [])
-  
-  if(!data)
+
+  if (!data)
     return
 
   return (
@@ -49,18 +50,17 @@ const RoundModal = ({ id }) => {
           </div>
         </div>
         {
-          data.client_seed.map((el, idx) => 
-            <div 
+          data.client_seed.map((el, idx) =>
+            <div
               key={idx}
               className={style.win}
             >
               <p className={style.label}>Player #{idx + 1}:</p>
-              <div className={style.avatar}>
-                <img
-                  src={el.avatar}
-                  alt={el.username}
-                />
-              </div>
+              <Avatar
+                url={el.avatar}
+                alt={el.username}
+                size={'md'}
+              />
               <strong>{mask('Nickname')}</strong>
               <p className={style.label}>Seed:</p>
               <h6 className={style.title}>{el.seed}</h6>

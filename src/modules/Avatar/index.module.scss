@@ -1,0 +1,13 @@
+@use 'scss/config' as *;
+
+.block {
+  border-radius: 50%; 
+
+  &.sm {
+    @include size(rem(30px));
+  }
+
+  &.md {
+    @include size(rem(40px));
+  }
+}

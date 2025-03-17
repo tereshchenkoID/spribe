@@ -1,5 +1,15 @@
 @use 'scss/config' as *;
 
 .block {
-  border: 1px solid #f00;
+  // @include flex($direction: column);
+  
+  // overflow: hidden;
+  // height: 100%;
+}
+
+.table {
+  @include make-spacer(px, var(--gap-4));
+  @include flex($direction: column);
+
+  gap: rem(2px);
 }

@@ -44,12 +44,6 @@
   gap: var(--gap-6);
 }
 
-.avatar {
-  @include size(rem(30px));
-
-  border-radius: 50%;
-}
-
 .table {
   @include make-spacer(mt, var(--gap-6));
 }

@@ -58,14 +58,8 @@
   gap: var(--gap-8);
 }
 
-.avatar {
-  @include size(rem(40px));
-
-  border-radius: 50%;
-}
-
 .nickname {
-  color: var(--color-white);
+  color: var(--color_text_alt);
   font-size: rem(14px)
 }
 

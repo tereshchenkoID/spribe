@@ -31,12 +31,6 @@
   }
 }
 
-.avatar {
-  @include size(rem(30px));
-
-  border-radius: 50%; 
-}
-
 .round {
   transform: scale(0.7);
   color: var(--color_success);

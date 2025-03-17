@@ -1,0 +1,62 @@
+@use 'scss/config' as *;
+
+.block {
+  background-color: var(--aside_background_color_alt);
+  border-radius: var(--border-radius-4);
+  overflow: hidden;
+  font-size: rem(12px);
+}
+
+.top,
+.bottom {
+  @include make-spacer(px, var(--gap-8));
+  @include make-spacer(py, var(--gap-4));
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr auto;
+}
+
+.cell {
+
+  &:nth-child(1) {
+    @include make-spacer(pt, var(--gap-8));
+    @include flex($direction: column);
+
+    gap: var(--gap-4);
+    place-items: center;
+  }
+}
+
+.item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+
+  &:not(:last-child) {
+    @include make-spacer(mb, var(--gap-2));
+  }
+}
+
+.bottom {
+  @include flex($align-items: center);
+
+  gap: var(--gap-16);
+  background-color: var(--color-black);
+}
+
+.win {
+  @include make-spacer(px, var(--gap-6));
+  @include make-spacer(py, var(--gap-2));
+
+  width: fit-content;
+  border-radius: rem(11px);
+  border: rem(1px) solid var(--color_success);
+  background-color: var(--color_success_alt);
+  font-size: rem(12px);
+}
+
+.text {
+  color: var(--color_text_alt);
+}

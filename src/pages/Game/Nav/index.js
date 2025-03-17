@@ -10,6 +10,7 @@ import { getData } from 'helpers/api'
 
 import Icon from 'components/Icon'
 import Toggle from 'components/Toggle'
+import Avatar from 'modules/Avatar'
 import AvatarModal from 'modules/AvatarModal'
 
 import style from './index.module.scss'
@@ -156,13 +157,11 @@ const Nav = () => {
         active &&
         <div className={style.dropdown}>
           <div className={style.header}>
-            <div className={style.avatar}>
-              <img
-                src={settings.avatar}
-                className={style.img}
-                alt={'Avatar'}
-              />
-            </div>
+            <Avatar
+              url={settings.avatar}
+              alt={settings.username}
+              size={'md'}
+            />
             <strong className={style.nickname}>{mask(settings.username)}</strong>
             <button
               type={'button'}
@@ -199,7 +198,7 @@ const Nav = () => {
                     />
                   </span>
                   <span className={style.text}>{el.text}</span>
-                  <Toggle 
+                  <Toggle
                     data={el.data}
                     action={() => handleOption(key)}
                   />

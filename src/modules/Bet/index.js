@@ -6,6 +6,7 @@ import { date } from 'helpers/date'
 
 import Odd from 'modules/Odd'
 import Fairness from 'modules/Fairness'
+import Avatar from 'modules/Avatar'
 
 import style from './index.module.scss'
 
@@ -23,12 +24,10 @@ const Bet = ({ data, type }) => {
         {
           type === 0 &&
           <>
-            <div className={style.avatar}>
-              <img
-                src={data.avatar}
-                alt={data.username}
-              />
-            </div>
+            <Avatar
+              url={data.avatar}
+              alt={data.username}
+            />
             <p>{mask(data.username)}</p>
           </>
         }
