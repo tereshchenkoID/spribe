@@ -12,7 +12,7 @@ export const setSettings = (value) => async dispatch => {
   } 
   else {
     try {
-      const data = await getData('settings')
+      const data = await getData('settings/')
 
       dispatch({
         type: types.SET_SETTINGS,

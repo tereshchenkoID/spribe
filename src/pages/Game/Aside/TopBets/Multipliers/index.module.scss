@@ -8,38 +8,34 @@
 }
 
 .table {
-  @include make-spacer(px, var(--gap-4));
+  @include flex($direction: column);
+
+  gap: var(--gap-4);
 }
 
 .row {
+  @include make-spacer(px, var(--gap-4));
+
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-columns: 2fr 2fr rem(24px);
   align-items: center;
-  background-color: var(--aside_background_color_alt);
-  border-radius: var(--border-radius-4);
-  height: rem(34px);
+  overflow: hidden;
   font-size: rem(12px);
 
-  &:not(:last-child) {
-    @include make-spacer(mb, var(--gap-2));
+  &:not(:first-child) {
+    background-color: var(--button_background_color);
+    border-radius: var(--border-radius-32);
+    height: rem(32px);
   }
 
-  &.lg {
-    grid-template-columns: 1fr auto;
-    place-items: center;
-    text-align: center;
-    height: rem(90px);
-
-    .cell {
-      @include make-spacer(py, var(--gap-4));
-    }
+  &:first-child {
+    font-size: rem(10px);
   }
 }
 
 .cell {
-  @include make-spacer(px, var(--gap-8));
 
-  &:nth-child(3) {
-    text-align: right;
+  &:not(:last-child) {
+    @include make-spacer(px, var(--gap-4));
   }
 }

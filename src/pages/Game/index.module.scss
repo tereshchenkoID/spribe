@@ -2,31 +2,31 @@
 
 :root {
   // Nav
-  --nav_background_color: #1b1c1d;
-  --nav_dropdown_color: #2c2d30;
+  --nav_background_color: transparent;
+  --nav_background_color_alt: #1f1f1f;
 
   // Modal
-  --modal_background_color: #383A3E;
+  --modal_background_color: #1f1f1f;
   --modal_background_color_alt: #2C2D30;
 
   // Game
-  --game_background_color: #0e0e0e;
-  --game_background_color_alt: #141516;
+  --game_background_color: #141414;
+  --game_background_color_alt: #1a1a1a;
 
   // Aside
-  --aside_background_color: #1b1c1d;
-  --aside_background_color_alt: #141516;
+  --aside_background_color: #1f1f1f;
+  // --aside_background_color_alt: #1f1f1f;
   
   // Button
-  --button_background_color: #252528;
-  --button_background_color_alt: #dc3545;
+  --button_background_color: #292929;
+  --button_background_color_alt: #2e2e2e;
 
-  --color_text: #9b9c9e;
-  --color_text_alt: #fff;
+  --color_text: #a3a3a3;
+  --color_text_alt: #f5f5f5;
 
   --color_danger: #dc3545;
   --color_danger_alt: #e00f24;
-  --color_success: #427F00;
+  --color_success: #60e572;
   --color_success_alt: #123406;
 }
 
@@ -34,7 +34,7 @@
   @include size(100vw, 100vh);
   
   display: grid;
-  grid-template-rows: rem(40px) 1fr;
+  grid-template-rows: auto 1fr;
   background-color: var(--game_background_color);
   color: var(--color_text);
 
@@ -45,7 +45,8 @@
 }
 
 .body {
-  @include make-spacer(p, var(--gap-8));
+  @include make-spacer(px, var(--gap-8));
+  @include make-spacer(pb, var(--gap-8));
 
   display: grid;
   grid-template-columns: rem(320px) 1fr;

@@ -2,12 +2,17 @@
 
 .block {
   border-radius: 50%; 
+  overflow: hidden;
 
   &.sm {
-    @include size(rem(30px));
+    @include size(rem(24px));
   }
 
   &.md {
-    @include size(rem(40px));
+    @include size(rem(32px));
+  }
+
+  &.lg {
+    @include size(rem(56px));
   }
 }

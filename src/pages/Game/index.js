@@ -13,14 +13,18 @@ import style from './index.module.scss'
 
 const Game = () => {
   const dispatch = useDispatch()
-  const { name } = useParams()
+  const { id } = useParams()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    dispatch(setSettings())
-    dispatch(setGame(name)).then(() =>
-      setLoading(false)
-    )
+    Promise.all([
+      dispatch(setSettings()),
+      dispatch(setGame(id))
+    ]).then(([settings, game]) => {
+      if (settings && game) {
+        setLoading(false)
+      }
+    })
   }, [])
 
   if (loading)

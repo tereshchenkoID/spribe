@@ -42,7 +42,7 @@ const RoundModal = ({ id }) => {
           <Icon
             iconName={'client'}
             width={32}
-            height={25}
+            height={32}
           />
           <div>
             <h6 className={style.title}>Client Seed:</h6>

@@ -1,13 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import style from './index.module.scss';
+import History from './History'
+
+import style from './index.module.scss'
 
 const Content = () => {
   return (
     <div className={style.block}>
-      Content
+      <History />
     </div>
   );
 }
 
-export default Content;
+export default Content

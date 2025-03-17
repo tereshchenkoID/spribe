@@ -9,21 +9,22 @@
 
 .table {
   @include flex($direction: column);
-  @include make-spacer(px, var(--gap-4));
 
-  gap: rem(2px);
+  gap: var(--gap-4);
 }
 
 .row {  
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  font-size: rem(12px);
+  font-size: rem(10px);
 }
 
 .cell {
   @include make-spacer(p, var(--gap-4));
+  
+  text-align: right;
 
-  &:nth-child(4) {
-    text-align: right;
+  &:nth-child(1) {
+    text-align: left;
   }
 }

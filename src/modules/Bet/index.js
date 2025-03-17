@@ -2,7 +2,6 @@ import React from 'react'
 import classNames from 'classnames'
 
 import { mask } from 'helpers/mask'
-import { date } from 'helpers/date'
 
 import Odd from 'modules/Odd'
 import Fairness from 'modules/Fairness'
@@ -21,20 +20,11 @@ const Bet = ({ data, type }) => {
       }
     >
       <div className={style.cell}>
-        {
-          type === 0 &&
-          <>
-            <Avatar
-              url={data.avatar}
-              alt={data.username}
-            />
-            <p>{mask(data.username)}</p>
-          </>
-        }
-        {
-          type === 1 &&
-          <p>{date(data.created)}</p>
-        }
+        <Avatar
+          url={data.avatar}
+          alt={data.username}
+        />
+        <p>{mask(data.username)}</p>
       </div>
       <div className={style.cell}>
         <p className={style.stake}>{data.stake}</p>

@@ -23,25 +23,11 @@ const Modal = ({ children, onClose, title }) => {
               className={style.close}
               onClick={onClose}
             >
-              <Icon
-                iconName={'times'}
-                width={18}
-                height={18}
-              />
+              <Icon iconName={'times'} />
             </button>
           </div>
           <div className={style.body}>
             {children}
-          </div>
-          <div className={style.footer}>
-            <button
-              type={"button"}
-              aria-label={'Close'}
-              className={style.button}
-              onClick={onClose}
-            >
-              Close
-            </button>
           </div>
         </div>
       </div>

@@ -2,9 +2,9 @@ import axios from 'axios'
 
 export const useRequest = (link, data, headers) => {
   const server = axios.create({
-    baseURL: `http://localhost:3000/json/${link}.json`,
+    baseURL: `https://api.oddsbit.io/spribe/${link}`,
   })
-
+  
   const get = async url => {
     try {
       const req = await server({

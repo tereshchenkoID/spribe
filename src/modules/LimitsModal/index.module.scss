@@ -1,0 +1,38 @@
+@use 'scss/config' as *;
+
+.block {
+  @include flex($direction: column);
+  
+  gap: var(--gap-16);
+  color: var(--color_text_alt);
+}
+
+.subtitle {
+  max-width: rem(375px);
+
+  font-size: rem(12px);
+}
+
+.wrapper {
+  background-color: var(--game_background_color_alt);
+  border-radius: var(--border-radius-10);
+}
+
+.row {
+  @include make-spacer(px, var(--gap-12));
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  height: rem(40px);
+  font-size: rem(14px);
+}
+
+.label {
+  color: var(--color_text);
+  font-size: rem(14px);
+}
+
+.text {
+  text-align: right;
+}

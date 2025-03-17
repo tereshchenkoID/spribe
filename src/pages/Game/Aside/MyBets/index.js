@@ -20,10 +20,10 @@ const MyBets = () => {
       <div className={style.body}>
         <div className={style.table}>
           <div className={style.row}>
-            <div className={style.cell}>Date</div>
-            <div className={style.cell}>Bet USD X</div>
-            <div className={style.cell}>Mult.</div>
-            <div className={style.cell}>Cash out USD</div>
+            <div className={style.cell}>Player</div>
+            <div className={style.cell}>Bet USD</div>
+            <div className={style.cell}>X</div>
+            <div className={style.cell}>Win USD</div>
           </div>
           {
             bets.map((el, idx) =>

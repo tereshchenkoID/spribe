@@ -1,22 +1,15 @@
 @use 'scss/config' as *;
 
-.block {
-  @include make-spacer(py, var(--gap-2));
-  
-  background-color: var(--color-black);
-  width: fit-content;
-
+.block {  
   &.sm {
-    @include make-spacer(px, var(--gap-6));
-
-    border-radius: rem(11px);
     font-size: rem(12px);
   }
 
-  &.lg {
-    @include make-spacer(px, var(--gap-16));
+  &.md {
+    font-size: rem(16px);
+  }
 
-    border-radius: rem(16px);
+  &.lg {
     font-size: rem(24px);
   }
 }

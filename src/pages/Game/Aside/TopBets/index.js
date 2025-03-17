@@ -26,14 +26,7 @@ const TopBets = () => {
   return (
     <div className={style.block}>
       <div className={style.header}>
-        <div 
-          className={
-            classNames(
-              style.tab,
-              style.alt
-            )
-          }
-        >
+        <div className={style.tab}>
           {
             TABS.map((el, idx) =>
               <button

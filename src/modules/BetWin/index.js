@@ -12,40 +12,49 @@ import style from './index.module.scss'
 const BetWin = ({ data }) => {
   return (
     <div className={style.block}>
-      <div className={style.top}>
-        <div className={style.cell}>
-          <Avatar
-            url={data.avatar}
-            alt={data.username}
-          />
-          {mask(data.username)}
-        </div>
-        <div className={style.cell}>
-          <ul className={style.list}>
-            <li className={style.item}>
-              <p>Bet USD:</p>
-              <p className={style.text}>{data.odds}</p>
-            </li>
-            <li className={style.item}>
-              <p>Win USD:</p>
-              <p className={style.win}>12.534</p>
-            </li>
-            <li className={style.item}>
-              <p>Multipliers</p>
-              <Odd
-                color={data.color}
-                odd={data.odds}
-              />
-            </li>
-          </ul>
-        </div>
-        <div className={style.cell}>
-          <Fairness data={data} />
+      <div className={style.cell}>
+        <Avatar
+          url={data.avatar}
+          alt={data.username}
+          size={'md'}
+        />
+        <div className={style.info}>
+          <p className={style.text}>{mask(data.username)}</p>
+          <p>{date(data.created, 0)}</p>
         </div>
       </div>
-      <div className={style.bottom}>
-        <p>{date(data.created)}</p>
-        <p>Round: <strong className={style.text}>{data.id}x</strong></p>
+      <div className={style.cell}>
+        <Fairness
+          data={data}
+          size={'lg'}
+        />
+      </div>
+      <div className={style.cell}>
+        <ul className={style.list}>
+          <li className={style.item}>
+            <p>Bet USD:</p>
+            <p className={style.text}>{data.odds}</p>
+          </li>
+          <li className={style.item}>
+            <p>Win USD:</p>
+            <p className={style.text}>12.534</p>
+          </li>
+        </ul>
+      </div>
+      <div className={style.cell}>
+        <ul className={style.list}>
+          <li className={style.item}>
+            <p>Round:</p>
+            <p className={style.text}>{data.id}</p>
+          </li>
+          <li className={style.item}>
+            <p>Multipliers:</p>
+            <Odd
+              color={data.color}
+              odd={data.odds}
+            />
+          </li>
+        </ul>
       </div>
     </div>
   )

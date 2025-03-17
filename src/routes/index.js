@@ -10,7 +10,7 @@ export const routes = [
     element: <Home />,
   },
   {
-    path: '/game/:name',
+    path: '/game/:id',
     element: <Game />,
   },
   {

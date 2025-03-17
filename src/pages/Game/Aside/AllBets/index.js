@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { setBets } from 'store/actions/betsAction';
+import { setBets } from 'store/actions/betsAction'
 
-import Icon from 'components/Icon';
-import Bet from 'modules/Bet';
+// import Icon from 'components/Icon'
+import Bet from 'modules/Bet'
 
-import style from './index.module.scss';
+import style from './index.module.scss'
 
 const AllBets = () => {
   const dispatch = useDispatch()
@@ -19,10 +19,12 @@ const AllBets = () => {
   return (
     <div className={style.block}>
       <div className={style.header}>
-        <h6 className={style.count}>All bets: <strong>{bets.length}</strong></h6>
-        <button
+        {/* <h6 className={style.count}>All bets: <strong>{bets.length}</strong></h6> */}
+        {/* <button
           type={'button'}
           className={style.previous}
+          aria-label={'Show previous round'}
+          title={'Show previous round'}
         >
           <Icon
             iconName={'history'}
@@ -30,15 +32,15 @@ const AllBets = () => {
             height={15}
           />
           <span>Previous round</span>
-        </button>
+        </button> */}
       </div>
       <div className={style.body}>
         <div className={style.table}>
           <div className={style.row}>
-            <div className={style.cell}>User</div>
-            <div className={style.cell}>Bet USD X</div>
-            <div className={style.cell}>Mult.</div>
-            <div className={style.cell}>Cash out USD</div>
+            <div className={style.cell}>Player</div>
+            <div className={style.cell}>Bet USD</div>
+            <div className={style.cell}>X</div>
+            <div className={style.cell}>Win USD</div>
           </div>
           {
             bets?.map((el, idx) =>
@@ -52,7 +54,7 @@ const AllBets = () => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default AllBets;
+export default AllBets

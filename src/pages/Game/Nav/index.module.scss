@@ -2,18 +2,12 @@
 
 .block {
   @include flex(space-between, center);
-  @include make-spacer(px, var(--outer-gap));
+  @include make-spacer(py, var(--gap-4));
+  @include make-spacer(px, var(--gap-8));
 
   position: relative;
   background-color: var(--nav_background_color);
   color: var(--color_text);
-}
-
-.header,
-.footer {
-  @include make-spacer(p, var(--gap-8));
-
-  min-height: rem(46px);
 }
 
 .logo {
@@ -26,36 +20,49 @@
   height: 100%;
 }
 
-.hr {
-  @include size(rem(1px), rem(16px));
-  @include make-spacer(mx, var(--gap-16));
+.toggle {
+  @include flex(center, center);
+  @include size(rem(32px));
 
-  background-color: var(--color_text);
+  border-radius: 50%;
+  background-color: var(--nav_background_color_alt);
 }
 
 .balance {
+  @include flex($align-items: center);
+  @include make-spacer(px, var(--gap-12));
+  @include make-spacer(mr, var(--gap-8));
+
+  border-radius: rem(64px);
+  background-color: var(--nav_background_color_alt);
+  gap: var(--gap-4);
+  height: rem(32px);
   font-size: rem(12px);
 }
 
-.label {
-  font-size: rem(16px);
-  color: var(--color_success);
+.currency {
+  opacity: 0.4;
 }
 
 .dropdown {
+  @include flex($direction: column);
+  @include make-spacer(p, var(--gap-8));
+
   position: absolute;
   top: 100%;
-  right: 0;
-  width: rem(320px);
-  background-color: var(--nav_dropdown_color);
-  border-radius: var(--border-radius-4);
+  right: var(--gap-8);
+  width: rem(278px);
+  gap: var(--gap-8);
+  background-color: var(--nav_background_color_alt);
+  border-radius: var(--border-radius-14);
 }
 
 .header {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
+  justify-content: center;
   gap: var(--gap-8);
+  cursor: pointer;
+  text-align: center;
 }
 
 .nickname {
@@ -63,42 +70,37 @@
   font-size: rem(14px)
 }
 
-.change {
-  @include make-spacer(px, var(--gap-12));
-
-  display: grid;
-  grid-template-columns: rem(20px) 1fr;
-  align-items: center;
-  max-width: rem(100px);
-  height: 100%;
-  border: rem(1px) solid currentColor;
-  border-radius: rem(21px);
-  background-color: var(--nav_background_color);
-  font-size: rem(12px);
+.wrapper {
+  border-radius: var(--border-radius-14);
+  background-color: var(--game_background_color_alt);
 }
 
 .link {
   @include make-spacer(px, var(--gap-12));
   @include flex($align-items: center);
-  @include size(100%, rem(44px));
+  @include size(100%, rem(40px));
 
   gap: var(--gap-8);
-  background-color: var(--nav_background_color);
   font-size: rem(14px);
-
-  &:not(:first-child) {
-    border-top: rem(1px) solid var(--color-white-alpha-01);
-  }
+  color: var(--color_text);
 
   @include hover {
 
     &:hover {
       color: var(--color_text_alt);
+
+      .icon {
+        opacity: 1;
+      }
     }
   }
 
   &.disable {
     color: inherit;
+
+    .icon {
+      opacity: initial;
+    }
   }
 }
 
@@ -107,22 +109,6 @@
 }
 
 .icon {
-  @include flex(center, center);
-
+  opacity: 0.5;
   flex-shrink: 0;
-  width: rem(24px);
-}
-
-.footer {
-  @include flex(center, center);
-
-  gap: var(--gap-8);
-  font-size: rem(12px);
-
-  @include hover {
-
-    &:hover {
-      color: var(--color_text_alt);
-    }
-  }
 }

@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
+import React, { useState } from 'react'
+import classNames from 'classnames'
 
-import AllBets from './AllBets';
-import MyBets from './MyBets';
-import TopBets from './TopBets';
+import AllBets from './AllBets'
+import MyBets from './MyBets'
+import TopBets from './TopBets'
 
-import style from './index.module.scss';
+import style from './index.module.scss'
 
 const TABS = [
-  'All bets',
-  'My bets',
-  'Top'
+  'Live bets',
+  'Previous',
+  'Top results'
 ]
 
 const Aside = () => {
@@ -58,7 +58,7 @@ const Aside = () => {
         This game is ...
       </div>
     </div>
-  );
+  )
 }
 
-export default Aside;
+export default Aside

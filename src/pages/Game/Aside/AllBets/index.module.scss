@@ -2,6 +2,7 @@
 
 .block {
   @include flex($direction: column);
+  @include make-spacer(px, var(--gap-4));
 
   overflow: hidden;
   height: 100%;
@@ -9,49 +10,56 @@
 
 .header {
   @include flex(space-between, center);
-  @include make-spacer(p, var(--gap-4));
+  @include make-spacer(p, var(--gap-12));
+  @include make-spacer(mb, var(--gap-4));
 
+  position: relative;
   flex-shrink: 0;
-  border-bottom: rem(1px) solid var(--aside_background_color_alt);
+  border-radius: var(--border-radius-12);
+  overflow: hidden;
+  background-color: var(--button_background_color);
+  background-image: linear-gradient(180deg, rgba(96, 229, 111, .11) 0%, rgba(96, 229, 114, 0) 100%), linear-gradient(180deg, rgba(20, 20, 20, .16) 0%, rgba(20, 20, 20, 0) 100%);
+  border: rem(1px) solid var(--button_background_color);
 }
 
 .table {
   @include flex($direction: column);
-  @include make-spacer(px, var(--gap-4));
 
-  gap: rem(2px);
+  gap: var(--gap-4);
 }
 
 .row {  
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  font-size: rem(12px);
+  font-size: rem(10px);
 }
 
 .cell {
   @include make-spacer(p, var(--gap-4));
+  
+  text-align: right;
 
-  &:nth-child(4) {
-    text-align: right;
+  &:nth-child(1) {
+    text-align: left;
   }
 }
 
-.previous {
-  @include flex($align-items: center);
+// .previous {
+//   @include flex($align-items: center);
 
-  gap: var(--gap-4);
-  border-radius: rem(17px);
-  height: rem(20px);
-  font-size: rem(12px);
-  padding: 0 8px 0 3px;
-  white-space: nowrap;
-  background-color: var(--button_background_color);
-  border: rem(1px) solid var(--color_text);
+//   gap: var(--gap-4);
+//   border-radius: rem(17px);
+//   height: rem(20px);
+//   font-size: rem(12px);
+//   padding: 0 8px 0 3px;
+//   white-space: nowrap;
+//   background-color: var(--button_background_color);
+//   border: rem(1px) solid var(--color_text);
 
-  @include hover {
+//   @include hover {
     
-    &:hover {
-      color: var(--button_background_color_alt);
-    }
-  }
-}
+//     &:hover {
+//       color: var(--button_background_color_alt);
+//     }
+//   }
+// }

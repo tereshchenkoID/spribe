@@ -1,11 +1,12 @@
-import { getData } from 'helpers/api'
+import { postData } from 'helpers/api'
 import { types } from 'store/actionTypes'
 
 export const setGame = (game) => async dispatch => {
   try {
-    console.log(game)
-
-    const data = await getData('game')
+    const formData = new FormData()
+    formData.append('id', game)
+    
+    const data = await postData('game/', formData)
 
     dispatch({
       type: types.SET_GAME,

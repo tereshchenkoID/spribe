@@ -3,7 +3,7 @@ import { types } from 'store/actionTypes'
 
 export const setGames = () => async dispatch => {
   try {
-    const data = await getData('games')
+    const data = await getData('games/')
 
     dispatch({
       type: types.SET_GAMES,

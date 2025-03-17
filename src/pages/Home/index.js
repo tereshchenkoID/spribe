@@ -28,7 +28,7 @@ const Game = () => {
             <li key={item.id}>
               <Link
                 className={style.link}
-                to={`/game/${item.url}`}
+                to={`/game/${item.id}`}
               >
                 <div className={style.preview}>
                   <img

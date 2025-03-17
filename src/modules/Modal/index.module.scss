@@ -9,13 +9,13 @@
   z-index: $z-index-9;
 }
 
-.header,
-.footer {
+.header {
   @include make-spacer(px, var(--gap-16));
-  @include flex($align-items: center);
+  @include flex(space-between, center);
 
+  border-bottom: rem(1px) solid var(--button_background_color_alt);
   flex-shrink: 0;
-  background-color: var(--modal_background_color_alt);
+  color: var(--color_text_alt);
 }
 
 .title {
@@ -34,28 +34,27 @@
 .content {
   @include flex;
 
-  border-radius: var(--border-radius-6);
+  border-radius: var(--border-radius-16);
   background-color: var(--modal_background_color);
   overflow: hidden;
   max-height: 100%;
   max-width: rem(800px);
-  width: 100%;
+  width: fit-content;
   z-index: $z-index-1;
 }
 
 .wrapper {
   display: grid;
-  grid-template-rows: rem(36px) 1fr rem(58px);
+  grid-template-rows: rem(48px) 1fr;
   width: 100%;
 }
 
-.header {
-  justify-content: space-between;
-  color: var(--color_text_alt);
-}
-
 .close {
-  display: inline-flex;
+  @include flex(center, center);
+  @include size(rem(32px));
+
+  border-radius: 50%;
+  background-image: linear-gradient(0deg,#333 0%,#383838 100%);
   color: var(--color_text);
 
   @include hover {
@@ -69,25 +68,4 @@
 .body {
   @include make-spacer(p, var(--gap-16));
   @include scroll;
-}
-
-.footer {
-  justify-content: center;
-}
-
-.button {
-  @include make-spacer(px, var(--gap-16));
-  @include make-spacer(py, var(--gap-6));
-
-  border-radius: var(--gap-6);
-  font-family: var(--font-family-alt);
-  color: var(--color_text);
-  border: rem(1px) solid currentColor;
-
-  @include hover {
-
-    &:hover {
-      color: var(--color_text_alt);
-    }
-  }
 }

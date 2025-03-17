@@ -8,54 +8,42 @@
 }
 
 .header {
-  @include make-spacer(mb, var(--gap-16));
+  @include make-spacer(p, var(--gap-4));
+  @include make-spacer(mb, var(--gap-8));
   @include flex($direction: column);
 
-  gap: var(--gap-8);
+  gap: var(--gap-4);
   flex-shrink: 0;
+  background-color: var(--game_background_color_alt);
+  border-radius: var(--border-radius-14);
 }
 
 .tab {
-  @include make-spacer(p, rem(2px));
+  @include size(100%, rem(32px));
   @include make-spacer(mx, auto);
-  @include flex;
-
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--gap-8);
-  height: rem(24px);
-  width: fit-content;
-  background-color: var(--aside_background_color_alt);
-  border-radius: rem(12px);
-
-  &.alt {
-    background-color: transparent;
-
-    .link {
-      background-color: transparent;
-      border: rem(1px) solid transparent;
-
-      &.active {
-        border-color: var(--color_text_alt);
-      }
-    }
-  }
 }
 
 .link {
-  width: rem(100px);
-  border-radius: inherit;
+  @include make-spacer(px, var(--gap-12));
+
+  border-radius: var(--border-radius-10);
   color: var(--color_text);
   font-size: rem(12px);
 
   &.active {
     pointer-events: none;
-    background-color: var(--button_background_color);
+    background-color: var(--button_background_color_alt);
     color: var(--color_text_alt);
   }
 
   @include hover {
     
     &:hover {
-      color: var(--button_background_color_alt);
+      color: var(--color_text_alt);
     }
   }
 }
