@@ -6,6 +6,7 @@ import { ModalProvider } from 'context/ModalContext'
 import { routes } from 'routes'
 
 import Toastify from 'components/Toastify'
+import Loader from 'components/Loader'
 
 import style from './index.module.scss'
 
@@ -14,7 +15,7 @@ const App = () => {
     <div className={style.block}>
       <ModalProvider>
         <Router>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Routes>
               {routes.map((route, index) => (
                 <Route key={index} path={route.path} element={route.element} />

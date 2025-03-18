@@ -5,6 +5,8 @@ import classNames from 'classnames'
 
 import { setSettings } from 'store/actions/settingsAction'
 
+import Avatar from 'modules/Avatar'
+
 import style from './index.module.scss'
 
 const AvatarModal = () => {
@@ -33,12 +35,13 @@ const AvatarModal = () => {
               )
             }
             onClick={() => handleSelect(avatarUrl)}
-            title={`Avatar ${i + 1}`} 
+            title={`Avatar ${i + 1}`}
+            aria-label={`Avatar ${i + 1}`}
           >
-            <img 
-              src={avatarUrl} 
-              className={style.img} 
-              alt={`Avatar ${i + 1}`} 
+            <Avatar 
+              url={avatarUrl} 
+              size={'lg'}
+              alt={`Avatar ${i + 1}`}
             />
           </button>
         )

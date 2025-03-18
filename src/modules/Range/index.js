@@ -44,8 +44,8 @@ const Range = ({ data, action, min, max, step, currency }) => {
             parseFloat(data) <= min && style.disabled
           )
         }
-        aria-label="Decrement"
-        title="Decrement"
+        aria-label={'Decrement'}
+        title={'Decrement'}
         onClick={handleDecrement}
       >
         -
@@ -54,6 +54,7 @@ const Range = ({ data, action, min, max, step, currency }) => {
         type="number"
         className={style.input}
         value={data}
+        aria-label={'Range'}
         onChange={(e) => inputHandler(e.target.value)}
       />
       <button
@@ -64,8 +65,8 @@ const Range = ({ data, action, min, max, step, currency }) => {
             parseFloat(data) >= max && style.disabled
           )
         }
-        aria-label="Increment"
-        title="Increment"
+        aria-label={'Increment'}
+        title={'Increment'}
         onClick={handleIncrement}
       >
         +

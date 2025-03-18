@@ -2,7 +2,7 @@
 
 .block {
   display: grid;
-  grid-template-columns: repeat(9, rem(70px));
+  grid-template-columns: repeat(9, auto);
   justify-content: center;
   gap: var(--gap-4);
 }
@@ -10,7 +10,6 @@
 .avatar {
   @include size(100%);
   
-  aspect-ratio: 1 / 1;
   border-radius: 50%;
   border: rem(4px) solid var(--button_background_color);
 

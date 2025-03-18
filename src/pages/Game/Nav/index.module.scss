@@ -88,10 +88,14 @@
   background-color: var(--button_background_color);
   border: rem(2px) solid var(--button_background_color);
   overflow: hidden;
+}
 
-  img {
-    object-fit: cover
-  }
+.image {
+  object-fit: cover
+}
+
+.loading {
+  @include size(rem(240px));
 }
 
 .link {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useModal } from 'context/ModalContext'
 import { Link } from 'react-router-dom'
@@ -10,12 +10,13 @@ import { getData } from 'helpers/api'
 
 import Icon from 'components/Icon'
 import Toggle from 'components/Toggle'
+import Loader from 'components/Loader'
 import Avatar from 'modules/Avatar'
 
-import AvatarModal from 'modules/AvatarModal'
-import LimitsModal from 'modules/LimitsModal'
-import LanguageModal from 'modules/LanguageModal'
-import HistoryModal from 'modules/HistoryModal'
+const AvatarModal = lazy(() => import('modules/AvatarModal'))
+const LimitsModal = lazy(() => import('modules/LimitsModal'))
+const LanguageModal = lazy(() => import('modules/LanguageModal'))
+const HistoryModal = lazy(() => import('modules/HistoryModal'))
 
 import style from './index.module.scss'
 
@@ -28,24 +29,24 @@ const Nav = () => {
 
   const handleModal = (type) => {
     let title
-    let template
+    let Component
 
     switch (type) {
       case 'limits':
         title = 'Game limits'
-        template = <LimitsModal />
+        Component = LimitsModal
         break;
       case 'avatar':
         title = 'Choose Game Avatar'
-        template = <AvatarModal />
+        Component = AvatarModal
         break;
       case 'language':
         title = 'Choose Language'
-        template = <LanguageModal />
+        Component = LanguageModal
         break;
       case 'history':
         title = 'Bet history'
-        template = <HistoryModal />
+        Component = HistoryModal
         break;
       default:
         return
@@ -54,7 +55,15 @@ const Nav = () => {
     setActive(false)
     openModal({
       title: title,
-      body: template,
+      body: <Suspense 
+              fallback={
+                <div className={style.loading}>
+                  <Loader />
+                </div>
+              }
+            >
+              <Component />
+            </Suspense>,
     })
   }
 
@@ -225,6 +234,7 @@ const Nav = () => {
               >
                 <span className={style.language}>
                   <img
+                    className={style.image}
                     src={'/images/countries/gb.svg'}
                     alt={'en'}
                   />
