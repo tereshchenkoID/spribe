@@ -1,0 +1,45 @@
+@use 'scss/config' as *;
+
+.block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  gap: var(--gap-16);
+}
+
+.button {  
+  display: grid;
+  grid-template-columns: rem(32px) 1fr;
+  align-items: center;
+  gap: var(--gap-8);
+
+  &.active {
+    pointer-events: none;
+
+    .image {
+      border-color: var(--color_success);
+    }
+  }
+
+  @include hover {
+
+    &:hover {
+
+      .image {
+        border-color: var(--color_danger);
+      }
+    }
+  }
+}
+
+.text {
+  font-size: rem(14px)
+}
+
+.image {
+  @include transition;
+  @include size(rem(32px));
+
+  border-radius: 50%;
+  border: rem(2px) solid var(--button_background_color);
+}

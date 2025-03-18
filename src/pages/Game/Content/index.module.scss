@@ -1,4 +1,15 @@
 @use 'scss/config' as *;
 
 .block {
+  @include flex($direction: column);
+
+  gap: var(--gap-8);
+}
+
+.content {
+  @include make-spacer(p, var(--gap-8));
+
+  border-radius: var(--border-radius-16);
+  background-color: var(--game_background_color);
+  flex-grow: 1;
 }

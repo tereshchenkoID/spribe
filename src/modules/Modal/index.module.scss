@@ -13,7 +13,7 @@
   @include make-spacer(px, var(--gap-16));
   @include flex(space-between, center);
 
-  border-bottom: rem(1px) solid var(--button_background_color_alt);
+  border-bottom: rem(1px) solid var(--button_background_color);
   flex-shrink: 0;
   color: var(--color_text_alt);
 }

@@ -1,0 +1,38 @@
+@use 'scss/config' as *;
+
+.block {
+  @include make-spacer(px, var(--gap-4));
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  background-color: var(--button_background_color);
+  border-radius: var(--border-radius-16);
+  gap: var(--gap-8);
+  height: rem(32px);
+}
+
+.button {
+  @include size(rem(24px));
+
+  border-radius: 50%;
+  background-color: var(--button_background_color_alt);
+  font-size: rem(18px);
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.input {
+  background-color: transparent;
+  border: 0;
+  text-align: center;
+  color: var(--color_text);
+  width: 100%;
+
+  &:focus {
+    outline: 0;
+  }
+}

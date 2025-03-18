@@ -36,14 +36,13 @@
 .link {
   @include make-spacer(px, var(--gap-12));
 
-  min-width: rem(94px);
   border-radius: rem(64px);
   color: var(--color_text);
   font-size: rem(12px);
 
   &.active {
     pointer-events: none;
-    background-color: var(--button_background_color_alt);
+    background-color: var(--button_background_color);
     color: var(--color_text_alt);
   }
 

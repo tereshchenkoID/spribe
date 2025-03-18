@@ -5,12 +5,14 @@ import settingsReducer from './reducers/settingsReducer'
 import betsReducer from './reducers/betsReducer'
 import gamesReducer from 'store/reducers/gamesReducer'
 import gameReducer from 'store/reducers/gameReducer copy'
+import toastifyReducer from 'store/reducers/toastifyReducer'
 
 const allReducer = combineReducers({
   games: gamesReducer,
   game: gameReducer,
   settings: settingsReducer,
   bets: betsReducer,
+  toastify: toastifyReducer
 })
 
 const composeEnhancers =

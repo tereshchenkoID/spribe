@@ -2,16 +2,15 @@
 
 .block {
   @include flex($direction: column);
-  @include make-spacer(px, var(--gap-4));
 
   overflow: hidden;
   height: 100%;
+  gap: var(--gap-4);
 }
 
 .header {
   @include flex(space-between, center);
   @include make-spacer(p, var(--gap-12));
-  @include make-spacer(mb, var(--gap-4));
 
   position: relative;
   flex-shrink: 0;
@@ -43,23 +42,3 @@
     text-align: left;
   }
 }
-
-// .previous {
-//   @include flex($align-items: center);
-
-//   gap: var(--gap-4);
-//   border-radius: rem(17px);
-//   height: rem(20px);
-//   font-size: rem(12px);
-//   padding: 0 8px 0 3px;
-//   white-space: nowrap;
-//   background-color: var(--button_background_color);
-//   border: rem(1px) solid var(--color_text);
-
-//   @include hover {
-    
-//     &:hover {
-//       color: var(--button_background_color_alt);
-//     }
-//   }
-// }

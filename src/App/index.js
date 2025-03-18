@@ -1,11 +1,13 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { Suspense } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import { ModalProvider } from 'context/ModalContext';
+import { ModalProvider } from 'context/ModalContext'
 
-import { routes } from 'routes';
+import { routes } from 'routes'
 
-import style from './index.module.scss';
+import Toastify from 'components/Toastify'
+
+import style from './index.module.scss'
 
 const App = () => {
   return (
@@ -21,8 +23,9 @@ const App = () => {
           </Suspense>
         </Router>
       </ModalProvider>
+      <Toastify />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

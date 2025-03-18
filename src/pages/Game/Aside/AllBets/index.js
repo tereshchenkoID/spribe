@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { setBets } from 'store/actions/betsAction'
 
-// import Icon from 'components/Icon'
 import Bet from 'modules/Bet'
 
 import style from './index.module.scss'
 
 const AllBets = () => {
   const dispatch = useDispatch()
+  const { settings } = useSelector(state => state.settings)
   const { bets } = useSelector(state => state.bets)
 
   useEffect(() => {
@@ -19,28 +19,15 @@ const AllBets = () => {
   return (
     <div className={style.block}>
       <div className={style.header}>
-        {/* <h6 className={style.count}>All bets: <strong>{bets.length}</strong></h6> */}
-        {/* <button
-          type={'button'}
-          className={style.previous}
-          aria-label={'Show previous round'}
-          title={'Show previous round'}
-        >
-          <Icon
-            iconName={'history'}
-            width={17}
-            height={15}
-          />
-          <span>Previous round</span>
-        </button> */}
+        <h6 className={style.count}>All bets: <strong>{bets.length}</strong></h6>
       </div>
       <div className={style.body}>
         <div className={style.table}>
           <div className={style.row}>
             <div className={style.cell}>Player</div>
-            <div className={style.cell}>Bet USD</div>
+            <div className={style.cell}>Bet, {settings.currency.currency}</div>
             <div className={style.cell}>X</div>
-            <div className={style.cell}>Win USD</div>
+            <div className={style.cell}>Win, {settings.currency.currency}</div>
           </div>
           {
             bets?.map((el, idx) =>

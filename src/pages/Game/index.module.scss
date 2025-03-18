@@ -1,33 +1,30 @@
 @use 'scss/config' as *;
 
 :root {
+  // Window
+  --background_color: #141414;
+
   // Nav
   --nav_background_color: transparent;
-  --nav_background_color_alt: #1f1f1f;
 
   // Modal
   --modal_background_color: #1f1f1f;
-  --modal_background_color_alt: #2C2D30;
 
   // Game
-  --game_background_color: #141414;
-  --game_background_color_alt: #1a1a1a;
+  --game_background_color: #1f1f1f;
 
   // Aside
   --aside_background_color: #1f1f1f;
-  // --aside_background_color_alt: #1f1f1f;
   
   // Button
   --button_background_color: #292929;
-  --button_background_color_alt: #2e2e2e;
+  --button_background_color_alt: #1f1f1f;
 
   --color_text: #a3a3a3;
   --color_text_alt: #f5f5f5;
 
   --color_danger: #dc3545;
-  --color_danger_alt: #e00f24;
   --color_success: #60e572;
-  --color_success_alt: #123406;
 }
 
 .block {
@@ -35,13 +32,8 @@
   
   display: grid;
   grid-template-rows: auto 1fr;
-  background-color: var(--game_background_color);
+  background-color: var(--background_color);
   color: var(--color_text);
-
-  a,
-  button {
-    color: var(--color_text);
-  }
 }
 
 .body {
@@ -56,7 +48,12 @@
     grid-template-columns: rem(370px) 1fr;
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     grid-template-columns: rem(410px) 1fr;
   }
+}
+
+a,
+button {
+  color: var(--color_text);
 }

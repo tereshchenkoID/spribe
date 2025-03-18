@@ -12,7 +12,7 @@
   
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  border: rem(4px) solid var(--nav_dropdown_color);
+  border: rem(4px) solid var(--button_background_color);
 
   &.active {
     pointer-events: none;

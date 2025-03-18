@@ -9,6 +9,7 @@ import style from './index.module.scss'
 
 const MyBets = () => {
   const dispatch = useDispatch()
+  const { settings } = useSelector(state => state.settings)
   const { bets } = useSelector(state => state.bets)
 
   useEffect(() => {
@@ -17,25 +18,21 @@ const MyBets = () => {
 
   return (
     <div className={style.block}>
-      <div className={style.body}>
-        <div className={style.table}>
-          <div className={style.row}>
-            <div className={style.cell}>Player</div>
-            <div className={style.cell}>Bet USD</div>
-            <div className={style.cell}>X</div>
-            <div className={style.cell}>Win USD</div>
-          </div>
-          {
-            bets.map((el, idx) =>
-              <Bet
-                key={idx}
-                data={el}
-                type={1}
-              />
-            )
-          }
-        </div>
+      <div className={style.row}>
+        <div className={style.cell}>Player</div>
+        <div className={style.cell}>Bet, {settings.currency.currency}</div>
+        <div className={style.cell}>X</div>
+        <div className={style.cell}>Win, {settings.currency.currency}</div>
       </div>
+      {
+        bets?.map((el, idx) =>
+          <Bet
+            key={idx}
+            data={el}
+            type={1}
+          />
+        )
+      }
     </div>
   )
 }

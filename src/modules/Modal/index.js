@@ -20,6 +20,7 @@ const Modal = ({ children, onClose, title }) => {
             <button
               type={"button"}
               aria-label={'Close'}
+              title={'Close'}
               className={style.close}
               onClick={onClose}
             >

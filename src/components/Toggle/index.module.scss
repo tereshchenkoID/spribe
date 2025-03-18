@@ -7,7 +7,7 @@
   position: relative;
   border-radius: var(--border-radius-4);
   overflow: hidden;
-  outline: rem(1px) solid rgba(255, 255, 255, 0.51);
+  outline: rem(1px) solid var(--color-white-alpha-05);
   flex-shrink: 0;
 }
 
@@ -40,7 +40,7 @@
     bottom: rem(1px);
     left: rem(1px);
     border-radius: var(--border-radius-4);
-    background-color: var(--color-white);
+    background-color: var(--color_text_alt);
     border: rem(2px) solid #a3b98a;
     transition: inherit;
     content: '';

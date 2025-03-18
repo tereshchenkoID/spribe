@@ -10,6 +10,7 @@ import style from './index.module.scss'
 const TABS = [
   'Live bets',
   'Previous',
+  'MyBets',
   'Top results'
 ]
 
@@ -46,11 +47,11 @@ const Aside = () => {
           <AllBets />
         }
         {
-          active === 1 &&
+          active === 2 &&
           <MyBets />
         }
         {
-          active === 2 &&
+          active === 3 &&
           <TopBets />
         }
       </div>

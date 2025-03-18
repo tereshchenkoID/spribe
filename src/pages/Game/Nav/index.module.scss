@@ -25,7 +25,7 @@
   @include size(rem(32px));
 
   border-radius: 50%;
-  background-color: var(--nav_background_color_alt);
+  background-color: var(--button_background_color);
 }
 
 .balance {
@@ -34,7 +34,7 @@
   @include make-spacer(mr, var(--gap-8));
 
   border-radius: rem(64px);
-  background-color: var(--nav_background_color_alt);
+  background-color: var(--button_background_color);
   gap: var(--gap-4);
   height: rem(32px);
   font-size: rem(12px);
@@ -42,6 +42,12 @@
 
 .currency {
   opacity: 0.4;
+}
+
+.shadow {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-black-alpha-05);
 }
 
 .dropdown {
@@ -53,13 +59,13 @@
   right: var(--gap-8);
   width: rem(278px);
   gap: var(--gap-8);
-  background-color: var(--nav_background_color_alt);
+  background-color: var(--button_background_color);
   border-radius: var(--border-radius-14);
 }
 
 .header {
   display: grid;
-  justify-content: center;
+  place-items: center;
   gap: var(--gap-8);
   cursor: pointer;
   text-align: center;
@@ -67,12 +73,25 @@
 
 .nickname {
   color: var(--color_text_alt);
-  font-size: rem(14px)
+  font-size: rem(14px);
 }
 
 .wrapper {
   border-radius: var(--border-radius-14);
-  background-color: var(--game_background_color_alt);
+  background-color: var(--button_background_color_alt);
+}
+
+.language {
+  @include size(rem(24px));
+
+  border-radius: 50%;
+  background-color: var(--button_background_color);
+  border: rem(2px) solid var(--button_background_color);
+  overflow: hidden;
+
+  img {
+    object-fit: cover
+  }
 }
 
 .link {
@@ -99,7 +118,7 @@
     color: inherit;
 
     .icon {
-      opacity: initial;
+      opacity: 0.5;
     }
   }
 }

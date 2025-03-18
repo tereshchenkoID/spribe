@@ -6,7 +6,6 @@ import classNames from 'classnames'
 
 import { setSettings } from 'store/actions/settingsAction'
 
-import { mask } from 'helpers/mask'
 import { getData } from 'helpers/api'
 
 import Icon from 'components/Icon'
@@ -15,6 +14,8 @@ import Avatar from 'modules/Avatar'
 
 import AvatarModal from 'modules/AvatarModal'
 import LimitsModal from 'modules/LimitsModal'
+import LanguageModal from 'modules/LanguageModal'
+import HistoryModal from 'modules/HistoryModal'
 
 import style from './index.module.scss'
 
@@ -37,6 +38,14 @@ const Nav = () => {
       case 'avatar':
         title = 'Choose Game Avatar'
         template = <AvatarModal />
+        break;
+      case 'language':
+        title = 'Choose Language'
+        template = <LanguageModal />
+        break;
+      case 'history':
+        title = 'Bet history'
+        template = <HistoryModal />
         break;
       default:
         return
@@ -77,6 +86,7 @@ const Nav = () => {
       id: '2',
       text: 'My bet history',
       icon: 'history',
+      action: () => handleModal('history')
     },
     {
       id: '3',
@@ -165,75 +175,97 @@ const Nav = () => {
       </div>
       {
         active &&
-        <div className={style.dropdown}>
+        <>
           <div
-            className={style.header}
-            onClick={() => handleModal('avatar')}
-          >
-            <Avatar
-              url={settings.avatar}
-              alt={settings.username}
-              size={'lg'}
-            />
-            <strong className={style.nickname}>{mask(settings.username)}</strong>
-          </div>
-          <div className={style.wrapper}>
-            {
-              Object.entries(OPTIONS).map(([key, el]) =>
-                <div
-                  key={key}
-                  className={
-                    classNames(
-                      style.link,
-                      style.disable
-                    )
-                  }
-                >
-                  <Icon
-                    iconName={el.icon}
-                    className={style.icon}
-                  />
-                  <span className={style.text}>{el.text}</span>
-                  <Toggle
-                    data={el.data}
-                    action={() => handleOption(key)}
-                  />
-                </div>
-              )
-            }
-          </div>
-          <div className={style.wrapper}>
-            {
-              LINKS.map((el, idx) =>
-                <button
-                  key={idx}
-                  type={'button'}
-                  className={style.link}
-                  aria-label={el.text}
-                  onClick={el.action}
-                >
-                  <Icon
-                    iconName={el.icon}
-                    className={style.icon}
-                  />
-                  {el.text}
-                </button>
-              )
-            }
-          </div>
-          <div className={style.wrapper}>
-            <Link
-              className={style.link}
-              to={'/'}
+            className={style.shadow}
+            onClick={() => setActive(!active)}
+          />
+          <div className={style.dropdown}>
+            <div
+              className={style.header}
+              onClick={() => handleModal('avatar')}
             >
-              <Icon
-                iconName={'home'}
-                className={style.icon}
+              <Avatar
+                url={settings.avatar}
+                alt={settings.username}
+                size={'lg'}
               />
-              <span>Home</span>
-            </Link>
+              <strong className={style.nickname}>{settings.username}</strong>
+            </div>
+            <div className={style.wrapper}>
+              {
+                Object.entries(OPTIONS).map(([key, el]) =>
+                  <div
+                    key={key}
+                    className={
+                      classNames(
+                        style.link,
+                        style.disable
+                      )
+                    }
+                  >
+                    <Icon
+                      iconName={el.icon}
+                      className={style.icon}
+                    />
+                    <span className={style.text}>{el.text}</span>
+                    <Toggle
+                      data={el.data}
+                      action={() => handleOption(key)}
+                    />
+                  </div>
+                )
+              }
+              <button
+                type={'button'}
+                className={style.link}
+                aria-label={'Language'}
+                title={'Language'}
+                onClick={() => handleModal('language')}
+              >
+                <span className={style.language}>
+                  <img
+                    src={'/images/countries/gb.svg'}
+                    alt={'en'}
+                  />
+                </span>
+                <span>Language</span>
+              </button>
+            </div>
+            <div className={style.wrapper}>
+              {
+                LINKS.map((el, idx) =>
+                  <button
+                    key={idx}
+                    type={'button'}
+                    className={style.link}
+                    aria-label={el.text}
+                    title={el.text}
+                    onClick={el.action}
+                  >
+                    <Icon
+                      iconName={el.icon}
+                      className={style.icon}
+                    />
+                    {el.text}
+                  </button>
+                )
+              }
+            </div>
+            <div className={style.wrapper}>
+              <Link
+                className={style.link}
+                to={'/'}
+              >
+                <Icon
+                  iconName={'home'}
+                  className={style.icon}
+                />
+                <span>Home</span>
+              </Link>
+            </div>
           </div>
-        </div>
+        </>
       }
     </div>
   )
