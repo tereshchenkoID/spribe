@@ -12,7 +12,6 @@
   @include flex(space-between, center);
   @include make-spacer(p, var(--gap-12));
 
-  position: relative;
   flex-shrink: 0;
   border-radius: var(--border-radius-12);
   overflow: hidden;

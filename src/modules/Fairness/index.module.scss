@@ -5,13 +5,20 @@
   @include size(rem(24px));
 
   border-radius: 50%;
-  background-image: linear-gradient(0deg,#333 0%,#383838 100%);
-
+  background-color: var(--button_background_color_alt);
+  
   &.sm {
     @include size(rem(24px));
   }
 
   &.lg {
     @include size(rem(32px));
+  }
+
+  @include hover {
+
+    &:hover {
+      color: var(--color_text_alt);
+    }
   }
 }

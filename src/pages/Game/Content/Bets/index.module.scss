@@ -2,6 +2,15 @@
 
 .block {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  align-items: flex-end;
+  gap: var(--gap-8);
   flex-shrink: 0;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cell {
+  @include make-spacer(py, var(--gap-8));
 }

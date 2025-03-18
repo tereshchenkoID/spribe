@@ -8,6 +8,13 @@
   flex-shrink: 0;
 }
 
+.header {
+  display: grid;
+  grid-template-columns: 1fr rem(32px);
+  align-items: center;
+  gap: var(--gap-8)
+}
+
 .tab {
   @include make-spacer(p, var(--gap-4));
   @include make-spacer(mb, var(--gap-8));
@@ -89,4 +96,22 @@
   border-radius: var(--border-radius-12);
   background-image: linear-gradient(180deg, #28b858 0%, #219748 100%);
   color: var(--color_text_alt);
+}
+
+.add {
+  @include make-spacer(mb, var(--gap-8));
+  @include flex(center, center);
+  @include size(rem(32px));
+
+  border-radius: 50%;
+  background-color: var(--button_background_color);
+  font-size: rem(24px);
+  color: var(--color_text);
+
+  @include hover {
+
+    &:hover {
+      color: var(--color_text_alt);
+    }
+  }
 }

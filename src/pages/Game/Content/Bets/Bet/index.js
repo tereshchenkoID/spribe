@@ -14,7 +14,7 @@ const TABS = [
   'Free bet'
 ]
 
-const Bets = () => {
+const Bets = ({ data, config, action }) => {
   const dispatch = useDispatch()
   const { settings } = useSelector(state => state.settings)
   const [active, setActive] = useState(0)
@@ -35,7 +35,7 @@ const Bets = () => {
           text: `The value cannot be lower than the minimum: ${min}.`,
         }),
       )
-    } else if(result > max) {
+    } else if (result > max) {
       setBet(max)
       dispatch(
         setToastify({
@@ -50,24 +50,38 @@ const Bets = () => {
 
   return (
     <div className={style.block}>
-      <div className={style.tab}>
+      <div className={style.header}>
+        <div className={style.tab}>
+          {
+            TABS.map((el, idx) =>
+              <button
+                key={idx}
+                type={'button'}
+                aria-label={el}
+                className={
+                  classNames(
+                    style.link,
+                    active === idx && style.active
+                  )
+                }
+                onClick={() => setActive(idx)}
+              >
+                {el}
+              </button>
+            )
+          }
+        </div>
         {
-          TABS.map((el, idx) =>
-            <button
-              key={idx}
-              type={'button'}
-              aria-label={el}
-              className={
-                classNames(
-                  style.link,
-                  active === idx && style.active
-                )
-              }
-              onClick={() => setActive(idx)}
-            >
-              {el}
-            </button>
-          )
+          data.action &&
+          <button
+            type={'button'}
+            aria-label={'Bet action'}
+            title={'Bet action'}
+            className={style.add}
+            onClick={action}
+          >
+            {config.length === 1 ? '+' : '-'}
+          </button>
         }
       </div>
       <div className={style.grid}>

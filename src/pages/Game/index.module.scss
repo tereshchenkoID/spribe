@@ -6,6 +6,7 @@
 
   // Nav
   --nav_background_color: transparent;
+  --nav_height: 40px;
 
   // Modal
   --modal_background_color: #1f1f1f;
@@ -41,14 +42,18 @@
   @include make-spacer(pb, var(--gap-8));
 
   display: grid;
-  grid-template-columns: rem(320px) 1fr;
+  grid-template-areas:
+    "content"
+    "sidebar"
+  ;
   gap: var(--gap-8);
 
-  @include media-breakpoint-up(md) {
-    grid-template-columns: rem(370px) 1fr;
+  @include media-breakpoint-up(lg) {
+    grid-template-areas: "sidebar content";
+    grid-template-columns: rem(320px) 1fr;
   }
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xl) {
     grid-template-columns: rem(410px) 1fr;
   }
 }

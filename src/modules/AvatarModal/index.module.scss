@@ -1,10 +1,20 @@
 @use 'scss/config' as *;
 
 .block {
+  --count: 4;
+
   display: grid;
-  grid-template-columns: repeat(9, auto);
+  grid-template-columns: repeat(var(--count), auto);
   justify-content: center;
   gap: var(--gap-4);
+
+  @include media-breakpoint-up(sm) {
+    --count: 6;
+  }
+
+  @include media-breakpoint-up(lg) {
+    --count: 9;
+  }
 }
 
 .avatar {

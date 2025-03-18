@@ -7,7 +7,13 @@
 
   position: relative;
   background-color: var(--nav_background_color);
+  height: var(--nav_height);
   color: var(--color_text);
+}
+
+.toggle,
+.balance {
+  z-index: $z-index-1;
 }
 
 .logo {
@@ -24,6 +30,7 @@
   @include flex(center, center);
   @include size(rem(32px));
 
+  position: relative;
   border-radius: 50%;
   background-color: var(--button_background_color);
 }
