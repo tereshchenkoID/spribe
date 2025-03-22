@@ -1,0 +1,28 @@
+@use 'scss/config' as *;
+
+.block {
+  @include flex($direction: column);
+  
+  gap: var(--gap-16);
+  color: var(--color_text_alt);
+}
+
+.wrapper {
+  background-color: var(--button_background_color);
+  border-radius: var(--border-radius-10);
+}
+
+.row {
+  @include make-spacer(p, var(--gap-8));
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  column-gap: var(--gap-16);
+  row-gap: var(--gap-8);
+}
+
+.text {
+  color: var(--color_text);
+  font-size: rem(12px);
+}

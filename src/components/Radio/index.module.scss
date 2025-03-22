@@ -1,0 +1,52 @@
+@use 'scss/config' as *;
+
+.block {
+  @include make-spacer(pl, var(--gap-16));
+  @include flex($align-items: center);
+
+  position: relative;
+  cursor: pointer;
+}
+
+.input {
+  display: none;
+
+  &:checked + .label {
+    color: var(--color_text_alt);
+
+    &::after {
+      opacity: 1;
+      background-color: var(--color_text_alt);
+    }
+  }
+}
+
+.label {
+  @include size(rem(16px));
+  @include transition;
+
+  position: absolute;
+  left: 0;
+  top: 50%;
+  border-radius: 50%;
+  border: rem(1px) solid var(--color_text);
+  transform: translateY(-50%);
+  background-color: var(--button_background_color);
+
+  &::after {
+    @include transition;
+    @include size(rem(9px));
+    @include absolute-center;
+ 
+    border-radius: 50%;
+    opacity: 0;
+    content: '';
+  }
+}
+
+.placeholder {
+  @include make-spacer(pl, var(--gap-8));
+  
+  font-size: rem(13px);
+  color: var(--color_text_alt);
+}

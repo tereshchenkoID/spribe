@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import { setSettings } from 'store/actions/settingsAction'
 import { setGame } from 'store/actions/gameAction'
+import { setConfig } from 'store/actions/configAction'
 
 import Nav from './Nav'
 import Aside from './Aside'
@@ -19,7 +20,8 @@ const Game = () => {
   useEffect(() => {
     Promise.all([
       dispatch(setSettings()),
-      dispatch(setGame(id))
+      dispatch(setGame(id)),
+      dispatch(setConfig())
     ]).then(([settings, game]) => {
       if (settings && game) {
         setLoading(false)

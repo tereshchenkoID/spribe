@@ -1,19 +1,19 @@
 import React from 'react'
 
-import classNames from 'classnames'
-
 import style from './index.module.scss'
 
-const Toggle = ({ data, action }) => {
+const Toggle = ({ data, action, placeholder }) => {
+
   return (
-    <label className={classNames(style.block)}>
-      <input 
+    <label className={style.block}>
+      <input
         type="checkbox"
-        className={style.input} 
-        onChange={action} 
-        checked={data === '1'} 
+        className={style.input}
+        onChange={action}
+        checked={data === '1'}
       />
       <span className={style.label} />
+      <span className={style.placeholder}>{placeholder}</span>
     </label>
   )
 }

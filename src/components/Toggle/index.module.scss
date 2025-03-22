@@ -1,20 +1,15 @@
 @import 'scss/config';
 
 .block {
-  @include flex;
-  @include size(rem(35px), rem(16px));
+  @include make-spacer(pl, rem(35px));
+  @include flex($align-items: center);
 
   position: relative;
-  border-radius: var(--border-radius-4);
-  overflow: hidden;
-  outline: rem(1px) solid var(--color-white-alpha-05);
-  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .input {
-  @include size(0);
-
-  opacity: 0;
+  display: none;
 
   &:checked + .label {
     background-color: #229607;
@@ -26,11 +21,17 @@
 }
 
 .label {
+  @include flex;
   @include transition;
-  @include absolute-filled;
+  @include size(rem(35px), rem(16px));
 
-  background-color: transparent;
-  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  border-radius: var(--border-radius-4);
+  transform: translateY(-50%);
+  overflow: hidden;
+  outline: rem(1px) solid var(--color-white-alpha-05);
 
   &::before {
     @include flex(center, center);
@@ -45,4 +46,11 @@
     transition: inherit;
     content: '';
   }
+}
+
+.placeholder {
+  @include make-spacer(pl, var(--gap-8));
+  
+  font-size: rem(13px);
+  color: var(--color_text_alt);
 }

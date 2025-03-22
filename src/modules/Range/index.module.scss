@@ -10,13 +10,34 @@
   border-radius: var(--border-radius-16);
   gap: var(--gap-8);
   height: rem(32px);
+
+  &.primary {
+    background-color: var(--button_background_color);
+
+    .button {
+      background-color: var(--button_background_color_alt);
+    }
+  }
+
+  &.alt {
+    background-color: var(--button_background_color_alt);
+
+    .button {
+      background-color: var(--button_background_color);
+    }
+  }
+
+  &.disabled {
+    border: 1px solid red;
+    pointer-events: none;
+    opacity: 0.7;
+  }
 }
 
 .button {
   @include size(rem(24px));
 
   border-radius: 50%;
-  background-color: var(--button_background_color_alt);
   font-size: rem(18px);
 
   &.disabled {

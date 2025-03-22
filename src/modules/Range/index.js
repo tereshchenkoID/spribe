@@ -6,7 +6,7 @@ import { setToastify } from 'store/actions/toastifyAction'
 
 import style from './index.module.scss'
 
-const Range = ({ data, action, min, max, step, currency }) => {
+const Range = ({ data, action, min, max, step, isDisabled, currency = 'USD', classes = 'primary' }) => {
   const dispatch = useDispatch()
 
   const showToast = (message) => {
@@ -35,7 +35,15 @@ const Range = ({ data, action, min, max, step, currency }) => {
   }
 
   return (
-    <div className={style.block}>
+    <div 
+      className={
+        classNames(
+          style.block,
+          style[classes],
+          isDisabled && style.disabled
+        )
+      }
+    >
       <button
         type="button"
         className={

@@ -228,18 +228,18 @@ const Nav = () => {
               <button
                 type={'button'}
                 className={style.link}
-                aria-label={'Language'}
-                title={'Language'}
+                aria-label={`Language ${settings.language.code}`}
+                title={`Language ${settings.language.code}`}
                 onClick={() => handleModal('language')}
               >
                 <span className={style.language}>
                   <img
                     className={style.image}
-                    src={'/images/countries/gb.svg'}
-                    alt={'en'}
+                    src={`/images/countries/${settings.language.code}.svg`}
+                    alt={settings.language.code}
                   />
                 </span>
-                <span>Language</span>
+                <span>{settings.language.text.toUpperCase()}</span>
               </button>
             </div>
             <div className={style.wrapper}>

@@ -1,0 +1,25 @@
+@use 'scss/config' as *;
+
+.block {
+  @include size(100%);
+}
+
+.history {
+  @include make-spacer(px, var(--gap-8));
+  @include flex($align-items: center);
+  @include size(100%, rem(32px));
+
+  overflow: hidden;
+  gap: var(--gap-8);
+  background-color: var(--button_background_color);
+  border-radius: var(--border-radius-32);
+  white-space: nowrap;
+}
+
+.odd {
+  font-size: rem(11px);
+
+  &:last-child {
+    color: var(--color_text_alt);
+  }
+}

@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useModal } from 'context/ModalContext'
 import classNames from 'classnames'
 
 import { setToastify } from 'store/actions/toastifyAction'
 
 import Range from 'modules/Range'
+import Loader from 'components/Loader'
+import AutoModal from 'modules/AutoModal'
 
 import style from './index.module.scss'
 
@@ -16,6 +19,7 @@ const TABS = [
 
 const Bets = ({ data, config, action }) => {
   const dispatch = useDispatch()
+  const { openModal } = useModal()
   const { settings } = useSelector(state => state.settings)
   const [active, setActive] = useState(0)
   const [bet, setBet] = useState(settings.betting.minBet)
@@ -48,6 +52,30 @@ const Bets = ({ data, config, action }) => {
     }
   }
 
+  const handleModal = () => {
+    setActive(false)
+    openModal({
+      title: 'Auto Modal',
+      body: <Suspense 
+              fallback={
+                <div className={style.loading}>
+                  <Loader />
+                </div>
+              }
+            >
+              <AutoModal />
+            </Suspense>,
+    })
+  }
+
+  const handleTab = (idx) => {
+    setActive(idx)
+
+    if(idx === 1) {
+      handleModal()
+    }
+  }
+
   return (
     <div className={style.block}>
       <div className={style.header}>
@@ -56,15 +84,15 @@ const Bets = ({ data, config, action }) => {
             TABS.map((el, idx) =>
               <button
                 key={idx}
-                type={'button'}
-                aria-label={el}
                 className={
                   classNames(
                     style.link,
                     active === idx && style.active
                   )
                 }
-                onClick={() => setActive(idx)}
+                type={'button'}
+                aria-label={el}
+                onClick={() => handleTab(idx)}
               >
                 {el}
               </button>

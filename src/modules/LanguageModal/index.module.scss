@@ -1,20 +1,10 @@
 @use 'scss/config' as *;
 
 .block {
-  --count: 2;
-
   display: grid;
-  grid-template-columns: repeat(var(--count), 1fr);
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   gap: var(--gap-16);
-
-  @include media-breakpoint-up(sm) {
-    --count: 3;
-  }
-
-  @include media-breakpoint-up(lg) {
-    --count: 4;
-  }
 }
 
 .button {  
@@ -22,6 +12,7 @@
   grid-template-columns: rem(32px) 1fr;
   align-items: center;
   gap: var(--gap-8);
+  text-transform: uppercase;
 
   &.active {
     pointer-events: none;
@@ -43,6 +34,7 @@
 }
 
 .text {
+  text-align: left;
   font-size: rem(14px)
 }
 
@@ -52,4 +44,9 @@
 
   border-radius: 50%;
   border: rem(2px) solid var(--button_background_color);
+  overflow: hidden;
+}
+
+.picture {
+  object-fit: cover;
 }
