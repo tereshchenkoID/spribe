@@ -37,7 +37,7 @@
 .link {
   @include make-spacer(px, var(--gap-12));
 
-  border-radius: rem(64px);
+  border-radius: var(--border-radius-64);
   color: var(--color_text);
   font-size: rem(12px);
 

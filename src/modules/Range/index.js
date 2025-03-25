@@ -1,25 +1,34 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+// import { useDispatch, useSelector } from 'react-redux'
 import classNames from 'classnames'
 
-import { setToastify } from 'store/actions/toastifyAction'
+// import { setToastify } from 'store/actions/toastifyAction'
 
 import style from './index.module.scss'
 
-const Range = ({ data, action, min, max, step, isDisabled, currency = 'USD', classes = 'primary' }) => {
-  const dispatch = useDispatch()
+const Range = ({ 
+  data, 
+  action, 
+  min, 
+  max, 
+  step, 
+  isDisabled, 
+  classes = 'primary' 
+}) => {
+  // const dispatch = useDispatch()
+  // const { settings } = useSelector(state => state.settings)
 
-  const showToast = (message) => {
-    dispatch(setToastify({ type: 'error', text: message }))
-  }
+  // const showToast = (message) => {
+  //   dispatch(setToastify({ type: 'error', text: message }))
+  // }
 
   const adjustValue = (value) => {
     if (value < min) {
-      showToast(`The value cannot be lower than the minimum: ${min} ${currency}.`)
+      // showToast(`The value cannot be lower than the minimum: ${min} ${settings.currency.currency}.`)
       return min
     }
     if (value > max) {
-      showToast(`The value cannot exceed the maximum: ${max} ${currency}.`)
+      // showToast(`The value cannot exceed the maximum: ${max} ${settings.currency.currency}.`)
       return max
     }
     return value

@@ -40,7 +40,7 @@
   @include make-spacer(px, var(--gap-12));
   @include make-spacer(mr, var(--gap-8));
 
-  border-radius: rem(64px);
+  border-radius: var(--border-radius-64);
   background-color: var(--button_background_color);
   gap: var(--gap-4);
   height: rem(32px);
@@ -68,6 +68,7 @@
   gap: var(--gap-8);
   background-color: var(--button_background_color);
   border-radius: var(--border-radius-14);
+  z-index: $z-index-2;
 }
 
 .header {

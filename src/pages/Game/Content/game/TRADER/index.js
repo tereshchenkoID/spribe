@@ -18,8 +18,10 @@ const TRADER = () => {
           </button>
         )}
       </div>
+
+      TRADER
     </div>
-  );
+  )
 }
 
 export default TRADER

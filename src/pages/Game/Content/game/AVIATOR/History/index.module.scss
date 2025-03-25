@@ -1,0 +1,25 @@
+@use 'scss/config' as *;
+
+.block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: var(--border-radius-24);
+  background-color: var(--button_background_color);
+}
+
+.head {
+  @include make-spacer(px, var(--gap-8));
+  @include flex($align-items: center);
+  @include size(100%, rem(32px));
+
+  font-size: rem(14px);
+}
+
+.list {
+  @include make-spacer(p, var(--gap-8));
+  @include flex($align-items: center, $wrap: wrap);
+
+  gap: var(--gap-8);
+}

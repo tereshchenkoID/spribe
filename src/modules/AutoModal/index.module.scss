@@ -1,10 +1,22 @@
 @use 'scss/config' as *;
 
 .block {
+  @include make-spacer(mx, calc(var(--gap-16) * -1));
   @include flex($direction: column);
-  
+
   gap: var(--gap-16);
+  max-height: 100%;
+  overflow: hidden;
   color: var(--color_text_alt);
+}
+
+.body,
+.footer {
+  @include make-spacer(px, var(--gap-16));
+  @include flex($direction: column);
+  @include scroll;
+
+  gap: var(--gap-16);
 }
 
 .wrapper {
@@ -18,11 +30,29 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  column-gap: var(--gap-16);
-  row-gap: var(--gap-8);
+  gap: var(--gap-8);
 }
 
 .text {
   color: var(--color_text);
   font-size: rem(12px);
+}
+
+.button {
+  @include size(100%, rem(48px));
+
+  border-radius: var(--border-radius-64);
+
+  &.success {
+    background-image: linear-gradient(180deg, #28b858 0%, #219748 100%);
+    color: var(--color_text_alt);
+  }
+
+  &.alt {
+    background-color: var(--button_background_color);
+  }
+}
+
+.footer {
+  flex-shrink: 0;
 }

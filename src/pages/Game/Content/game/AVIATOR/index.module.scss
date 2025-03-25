@@ -2,6 +2,48 @@
 
 .block {
   @include size(100%);
-  
-  border: 1px solid #0037ff;
+}
+
+.head {
+  @include make-spacer(p, var(--gap-2));
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--gap-8);
+  position: relative;
+  background-color: var(--button_background_color);
+  border-radius: var(--border-radius-32);
+}
+
+.history {
+  @include make-spacer(px, var(--gap-8));
+  @include flex($align-items: center);
+  @include size(100%, rem(32px));
+
+  position: relative;
+  overflow: hidden;
+  gap: var(--gap-8);
+  white-space: nowrap;
+
+  &::after {
+    @include size(rem(23px), 100%);
+
+    position: absolute;
+    right: 0;
+    background-image: linear-gradient(to left, var(--button_background_color), transparent);
+    content: '';
+  }
+}
+
+.toggle {
+  @include flex(center, center);
+
+  position: relative;
+  z-index: $z-index-1;
+  border-radius: var(--border-radius-32);
+  background-color: var(--button_background_color_alt);
+
+  &.active {
+    color: var(--color_text_alt);
+  }
 }

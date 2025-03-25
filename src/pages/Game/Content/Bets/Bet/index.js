@@ -26,7 +26,8 @@ const Bets = ({ data, config, action }) => {
   const min = parseFloat(settings.betting.minBet)
   const max = parseFloat(settings.betting.maxBet)
   const step = parseFloat(settings.betting.step)
-  const currency = settings.currency.currency
+
+  const betType = 'default'
 
   const handleIncrement = (value) => {
     const result = parseFloat(bet) + parseFloat(value)
@@ -53,25 +54,25 @@ const Bets = ({ data, config, action }) => {
   }
 
   const handleModal = () => {
-    setActive(false)
+    // setActive(false)
     openModal({
-      title: 'Auto Modal',
-      body: <Suspense 
-              fallback={
-                <div className={style.loading}>
-                  <Loader />
-                </div>
-              }
-            >
-              <AutoModal />
-            </Suspense>,
+      title: 'Auto Play',
+      body: <Suspense
+        fallback={
+          <div className={style.loading}>
+            <Loader />
+          </div>
+        }
+      >
+        <AutoModal />
+      </Suspense>,
     })
   }
 
   const handleTab = (idx) => {
     setActive(idx)
 
-    if(idx === 1) {
+    if (idx === 1) {
       handleModal()
     }
   }
@@ -112,43 +113,87 @@ const Bets = ({ data, config, action }) => {
           </button>
         }
       </div>
-      <div className={style.grid}>
-        <div className={style.cell}>
-          <Range
-            data={bet}
-            action={setBet}
-            min={min}
-            max={max}
-            step={step}
-            currency={currency}
-          />
-        </div>
+      <div
+        className={
+          classNames(
+            style.grid,
+            style[betType]
+          )
+        }
+      >
         {
-          settings.betting.quickBet.split(',').map((el, idx) =>
-            <div
-              key={idx}
-              className={style.cell}
-            >
+          betType === 'default' &&
+          <>
+            <div className={style.cell}>
+              <Range
+                data={bet}
+                action={setBet}
+                min={min}
+                max={max}
+                step={step}
+              />
+            </div>
+            {
+              settings.betting.quickBet.split(',').map((el, idx) =>
+                <div
+                  key={idx}
+                  className={style.cell}
+                >
+                  <button
+                    type={'button'}
+                    className={style.quick}
+                    aria-label={el}
+                    title={el}
+                    onClick={() => handleIncrement(el)}
+                  >
+                    {el}
+                  </button>
+                </div>
+              )
+            }
+          </>
+        }
+        {
+          betType === 'auto' &&
+          <>
+            <div className={style.cell}>
+              <div className={style.currency}>
+                <p>Win {settings.currency.currency}</p>
+                <strong>17.38</strong>
+              </div>
+            </div>
+            <div className={style.cell}>
               <button
                 type={'button'}
-                className={style.quick}
-                aria-label={el}
-                title={el}
-                onClick={() => handleIncrement(el)}
+                className={
+                  classNames(
+                    style.button,
+                    style.cancel,
+                    style.small,
+                  )
+                }
+                aria-label={'Cancel'}
+                title={'Cancel'}
               >
-                {el}
+                <p>Stop auto</p>
+                <strong>32/50</strong>
               </button>
             </div>
-          )
+          </>
         }
         <div className={style.cell}>
           <button
             type={'button'}
-            className={style.bet}
+            className={
+              classNames(
+                style.button,
+                style.bet
+              )
+            }
             aria-label={'Bet'}
             title={'Bet'}
           >
-            <p>BET 1</p>
+            <p>BET {data.id}</p>
             <strong>{bet} {settings.currency.currency}</strong>
           </button>
         </div>

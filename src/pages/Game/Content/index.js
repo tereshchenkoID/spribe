@@ -10,9 +10,9 @@ import style from './index.module.scss'
 const loadGameModule = id => {
   switch (id) {
     case '1':
-      return lazy(() => import("./game/TRADER"))
-    case '2':
       return lazy(() => import("./game/AVIATOR"))
+    case '2':
+      return lazy(() => import("./game/TRADER"))
     default:
       return lazy(() => import("./game/TRADER"))
   }

@@ -15,7 +15,7 @@ const Odd = ({ odd, color, size = 'sm' }) => {
       }
       style={{color: color}}
     >
-      {odd} x
+      {odd}x
     </div>
   )
 }
